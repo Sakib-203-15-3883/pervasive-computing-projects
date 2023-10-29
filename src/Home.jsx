@@ -4,9 +4,9 @@ import { deviceWidth, deviceHeight } from './Dimensions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Cards from './Cards';
 
-const Home = () => {
+const Home = (props) => {
 
-  const [city,setCity] = useState("");
+let [city,setCity] = useState("");
 
   const cities = [
     {
@@ -117,12 +117,12 @@ const Home = () => {
             placeholderTextColor="white"
             style={{ paddingHorizontal: 10, color: "white" ,fontWeight:"bold",fontSize:15}}
 
-            value='city'
+            value = {city}
             onChangeText={(value)=>{setCity(value)}}
 
           />
 
-          <TouchableOpacity onPress={()=>{}}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('Details',{name:city})}>
           < Icon name="search" size={28} color="white" />
 
           </TouchableOpacity>
@@ -138,7 +138,9 @@ const Home = () => {
 
         data={cities} renderItem={({item})=>{
           return(
-            <Cards name={item.name} image={item.image}/>
+            <Cards name={item.name} image={item.image}
+            navigation={props.navigation}
+            />
           )
         }}
         
