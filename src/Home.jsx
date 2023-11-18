@@ -9,14 +9,61 @@ import {
   FlatList,
   ScrollView, // Import ScrollView
 } from 'react-native';
+import Quiz from './Quiz';
 import { deviceWidth, deviceHeight } from './Dimensions';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Cards from './Cards';
 import Calculator from './Calculator';
+import ScientificCalculator from './ScientificCalculator'
+import Portfolio from "./Portfolio"
+import PersonalInfo from "./components/PersonalInfo"
+
+
+const questions = [
+  {
+    question: 'What does the === operator do in JavaScript?',
+    options: ['a) Checks if two values are equal in value and type.', 'b) Assigns a value to a variable.', 'c) Checks if two values are equal in value but not necessarily in type.'],
+    correctAnswer: 'a) Checks if two values are equal in value and type.',
+  },
+  {
+    question: 'What is the purpose of the Array.map method in JavaScript?',
+    options: ['a) To filter elements in an array.', 'b) To create a new array with the results of calling a provided function on every element in the array.', 'c) To sort the elements of an array.'],
+    correctAnswer: 'b) To create a new array with the results of calling a provided function on every element in the array.',
+  },
+  {
+    question: 'What is the purpose of the Array.reduce method in JavaScript?',
+    options: ['a) To create a new array with the results of calling a provided function on every element in the array.', 'b) To filter elements in an array based on a provided condition.', 'c) To reduce the array to a single value.'],
+    correctAnswer: 'c) To reduce the array to a single value.',
+  },
+  {
+    question: 'What is the role of the Promise object in JavaScript?',
+    options: ['a) Promises can only be rejected, not resolved.', 'b) Promises represent a value that may be available now, in the future, or never.', 'Madrid'],
+    correctAnswer: 'b) Promises represent a value that may be available now, in the future, or never.',
+  },
+  
+  // Add more questions as needed
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const Home = (props) => {
   let [city, setCity] = useState('');
 
+  
   const cities = [
     {
       name: 'Dhaka',
@@ -162,7 +209,33 @@ const Home = (props) => {
       </View>
 
 
-      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: -30, }}>Claculator</Text>
+      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: 20, }}>Quiz App</Text>
+
+
+     
+      
+      <Quiz questions={questions}   />
+
+
+      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: 20, }}>scientific calculator</Text>
+
+
+      <ScientificCalculator/>
+
+
+      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: 20, }}>Profile App </Text>
+      <PersonalInfo />
+      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: -40, }}>Some of my Projects</Text>
+      <Portfolio  />
+
+
+
+      <Text style={{ color: "black", fontSize: 26, fontWeight: "bold", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", marginTop: 20, marginBottom: -40, }}>Basic Claculator</Text>
+
+
+
+
+    
 
 
       <Calculator />
